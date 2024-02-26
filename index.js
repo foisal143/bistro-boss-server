@@ -326,6 +326,7 @@ async function run() {
     app.get('/user-stage/:email', verifyJwt, async (req, res) => {
       const email = req.params.email;
       const query = { email: email };
+
       const orders = await paymentColection.find(query).toArray();
       const review = await reviewColection.find(query).toArray();
       const booking = await bookingCollection.find(query).toArray();
